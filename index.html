@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ghali Maaji 2023</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+	<!--<header>
+
+    <div class="logo">
+      <img src="public/img/apc.jpeg" alt="apc logo">
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="icon">
+        <span><i class="fa fa-bars" id="bar"></i></a></span>
+    </div>
+
+  </header>-->
+
+  <header id="header">
+    <div class="head-container">
+         <div class="logo">
+              <img src="public/img/apc.jpeg" alt="APC Logo">
+         </div>
+         
+         <nav>
+              <ul>
+                   <li><a href="#home">Tushe</a></li>
+                   <li><a href="#about">Bayanai</a></li>
+                   <li><a href="contact.html">tuntubemu</a></li>
+              </ul>
+         </nav>
+    </div>
+
+    <div class="icons" id="#icon">
+      <!-- nav here -->
+      <i class="fa fa-bars" id="bar"></i>  
+    </div>
+    
+  </header>
+
+  <section class="title-container">
+    
+    <h1 class="title">Hon. Ghali Maaji Abdulhameed 2023</h1>
+
+  </section>
+
+	<!-- section home starts -->
+
+  <section class="home" id="home">
+
+    <div class="image">
+      <img src="public/img/g-3.jpg">
+    </div>
+
+    <div class="content">
+
+      <form action="" id="my-form">
+        <input type="text" id="name" placeholder="Saka sunanka anan ka danna kasan">
+      </form>
+
+      <div id="msg"></div>
+
+      <div class="cont">
+
+          <button id="myBtn">Danna</button>
+
+      </div>
+      
+    </div>
+
+  </section>
+
+  <!-- section home ends -->
+
+  <section class="about" id="about">
+     
+     <h1 class="heading">about ghali maaji abdulhameed</h1>
+
+     <div class="about-container">
+
+         <p class="about-detail">hon. ghali maaji tsohon kwamishinan ruwa ne a gwannatin jihar bauchi daga shekarar 2015 zuwa 2019</p>
+
+       <p class="about-detail">Ya jima yana kai-komo a majalisar wakilai ta tarayyar nijeriya. yayi aikace-aikace daban-daban a majalisar inda har sai da ya rike mukamin babban mataimaki a ofishin mataimakin shugaban majalisar</p>
+
+       <p class="about-detail"></p>
+
+     </div>
+
+   </section>
+
+<!-- aside section starts -->
+  <section class="aside" id="aside">
+
+  </section>
+
+  <!-- aside section ends -->
+
+   <section class="footer">
+
+        <p class="credit">ghali maaji 2023 | all rights reserved </p>
+        <p>a tuntubemu:<a href="mailto:gadsedu24@gmail.com"><small>ka-media</small></a></p>
+   
+   </section>
+
+   <!-- footer section ends -->
+
+  <script type="text/javascript">
+    
+    const btn = document.getElementById('myBtn');
+        btn.addEventListener('click', function() {
+
+          const msg = document.querySelector('#msg');
+          const myForm = document.querySelector('#my-form');
+
+          const name = document.getElementById('name').value;
+          const hon = 'Hon. Ghali Maaji Abdulhameed';
+          const rep = 'a matsayin Wakilin Gundumar Katagum';
+          const house = 'a majalisar tarayya domin kyakkyawan wakilci da cigaba';
+
+           if(name === '') {
+              msg.innerHTML = 'Yi hakuri. Baka sa sunanka ba. Saka ka gani!';
+              msg.style.background = 'red';
+              msg.style.color = '#fff';
+              msg.style.marginBottom = '2rem'
+              //msg.style.background.width = 50%
+              setTimeout(() => msg.remove(), 5000);
+           } 
+           else {
+              btn.remove();
+              myForm.remove();
+              msg.innerHTML = `${name}, Muna maka maraba. Muna son ka zabi ${hon} a zaben gama-gari na 2023 mai zuwa ${rep} ${house}. Mun gode`;
+              msg.style.color = '#fff';
+              msg.style.background = '#20b2aa';
+              msg.style.boxShadow = '#ccc .5rem 2rem 3rem .2rem';
+              setTimeout(() => msg.remove(), 15000);
+           }
+
+        });
+  </script>
+  
+</body>
+</html>
