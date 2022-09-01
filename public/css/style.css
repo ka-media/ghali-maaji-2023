@@ -12,8 +12,9 @@
 }
 
 :root {
-     --blue: #00ff;
+     --blue: rgb(0, 123, 255);
      --green: #2fcf10;
+     --dark-green: #064210;
      --grey: #ccc;
      --text-color-1: #fff;
      --text-color-2: #000;
@@ -51,7 +52,7 @@ header {
      left: 0;
      padding: 10px;
      width: 100%;
-     background: var(--green);
+     background: var(--dark-green);
 }
 
 header .head-container {
@@ -109,8 +110,8 @@ section {
      position: relative;
      color: var(--text-color2);
      text-align: center;
-     padding-top: 8rem;
-     font-size: 3rem;
+     padding-top: 10rem;
+     font-size: 3.5rem;
 }
 
 .home .image {
@@ -126,7 +127,15 @@ section {
 
 .home .content {
      flex: 1 1 45rem;
-     gap: 2rem;
+     gap: 5rem;
+}
+
+.home .content .cont {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: space-around;
+     margin-top: 2rem;
 }
 
 .home .content h3 {
@@ -134,29 +143,56 @@ section {
      font-size: 2.5rem;
 }
 
-.home .content p, 
-.about-container p {
+.home .content p,
+.about .heading, 
+.about .about-container .about-detail {
      color: var(--text-color2);
-     font-size: 1.7rem;
+     font-size: 2rem;
      line-height: 1.7;
      padding: 1rem 0;
 }
 
-.home about-container p {
+.home .about-container p {
      transform: none;
 }
 
 .home button {
      width: 8rem;
      padding: 0.2rem;
+     font-weight: bold;
      background-color: var(--green);
      color: var(--text-color-1);
      border-radius: 0.8rem;
+     border-color: 1px solid var(--text-color-2);
+}
+
+#image {
+     position: relative;
+     cursor: pointer;
+}
+
+#image img {
+     position: absolute;
+     left: 0;
+     -webkit-transition: opacity 1s ease-in-out;
+     -moz-transition: opacity 1s ease-in-out;
+     -o-transition: opacity 1s ease-in-out;
+     transition: opacity 1s ease-in-out;
+}
+
+#image img.top:hover {
+     opacity: 0;
+}
+
+#refresh {
+     background-color: var(--blue);
 }
  
 .home input {
      width: 100%;
+     font-size: 2.5rem;
      margin-top: 1.5rem;
+     text-align: center;
      border: 1px solid var(--grey);
      border-radius: .5rem;
 }
@@ -177,9 +213,10 @@ section {
 }
 
 .aside .image img {
-     width: 100%;
-     height: 50rem;
+     width: 50%;
+     height: 70rem;
      margin-top: .5rem;
+     margin-left: 25%;
      border-radius: 50%;
 }
 
@@ -188,6 +225,14 @@ section {
      font-size: 1.5rem;
      padding: 1rem 0;
      text-align: center;
+}
+
+small {
+     margin-left: 1rem;
+     font-weight: 900;
+     background: var(--green);
+     padding: .5rem;
+     border-radius: .5rem;
 }
 
 /* media queries */
@@ -214,6 +259,12 @@ section {
           width: 100%;
      }
 
+     .aside .image img {
+          width: 50%;
+          margin-left: 25%;
+          height: 30rem;
+     }
+
 }
 
 @media (max-width: 450px) {
@@ -224,6 +275,10 @@ section {
 
      .home .image img {
           width: 100%;
+     }
+
+     .aside .image img {
+          width: 35%;
      }
 
 }

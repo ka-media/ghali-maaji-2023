@@ -24,7 +24,11 @@
               </ul>
          </nav>
     </div>
-  
+
+    <!-- <div class="icons" id="#icon">
+      <i class="fa fa-bars" id="bar"></i>  
+    </div>-->
+    
   </header>
 
   <section class="title-container">
@@ -44,14 +48,16 @@
     <div class="content">
 
       <form action="" id="my-form">
-        <input type="text" id="name" placeholder="Saka sunanka anan ka danna kasan">
+        <input type="text" id="name" placeholder="A sa suna anan a danna kasan">
       </form>
 
       <div id="msg"></div>
 
       <div class="cont">
 
-          <button id="myBtn">Danna</button>
+          <button id="myBtn">Danna nan</button>
+
+          <button id="refresh">Murza Wani</button>
 
       </div>
       
@@ -101,19 +107,23 @@
    <section class="footer">
 
         <p class="credit">ghali maaji 2023 | all rights reserved </p>
-        <p>a tuntubemu:<a href="mailto:gadsedu24@gmail.com"><small>ka-media</small></a></p>
+        <p>a tuntubemu:<a href="mailto:gadsedu24@gmail.com"><small>Ka-media</small></a></p>
    
    </section>
 
    <!-- footer section ends -->
 
   <script type="text/javascript">
+
+    const name = document.getElementById('name').value;
     
     const btn = document.getElementById('myBtn');
         btn.addEventListener('click', function() {
 
           const msg = document.querySelector('#msg');
           const myForm = document.querySelector('#my-form');
+          
+          //const reload = document.querySelector('#refresh');
 
           const name = document.getElementById('name').value;
           const hon = 'Hon. Ghali Maaji Abdulhameed';
@@ -121,33 +131,36 @@
           const house = 'a majalisar tarayya domin kyakkyawan wakilci da cigaba';
 
            if(name === '') {
-              msg.innerHTML = 'Yi hakuri. Baka sa sunanka ba. Saka ka gani!';
+              msg.innerHTML = 'Yi hakuri. Baku sa sunan ba. Saka ku gani!';
               msg.style.background = 'red';
               msg.style.color = '#fff';
               msg.style.marginBottom = '2rem'
               //msg.style.background.width = 50%
               setTimeout(() => msg.remove(), 5000);
 
-              /*window.onload = startInterval;
-              function startInterval() {
-                  setInterval("startTime();",2000);
-              }
-
-              function startTime() {
-                  document.getElementById('time').innerHTML = Date();
-              }*/
            } 
            else {
               btn.remove();
               myForm.remove();
-              msg.innerHTML = `${name}, Muna maka maraba. Muna son ka zabi ${hon} a zaben gama-gari na 2023 mai zuwa ${rep} ${house}. Mun gode`;
+              //reload.remove();
+              msg.innerHTML = `${name}, Muna maka/ki maraba. Muna son ka/ki zabi ${hon} 
+              a zaben gama-gari na 2023 mai zuwa karkashin tutar jam'iyyar APC 
+              ${rep} ${house}. Kuri'arku na da mahimmanci sosai a wajenmu. Mun gode`;
               msg.style.color = '#fff';
               msg.style.background = '#20b2aa';
               msg.style.boxShadow = '#ccc .5rem 2rem 3rem .2rem';
-              setTimeout(() => msg.remove(), 20000);
+              setTimeout(() => msg.remove(), 25000);
            }
 
         });
+
+        const refresh = document.getElementById('refresh');
+           refresh.addEventListener('click', function() {
+
+            window.location.reload();
+            name.remove();
+           });
+
   </script>
   
 </body>

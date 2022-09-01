@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghali Maaji 2023</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css">
+    <style>
+        /* The animation code */
+        @keyframes example {
+        from {background: url('public/img/g-1.jpg');}
+        to {background: url('public/img/g-3.jpg');}
+        }
+
+        /* The element to apply the animation to */
+        #image {
+        width: 25rem;
+        height: 60rem;
+        background: url('public/img/g-3.jpg');
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        } 
+        
+        fieldset {
+            font-size: 2em;
+            margin: 8rem;
+            padding: 1.5rem;
+            border: .1rem solid #ccc;
+            border-radius: .5rem;
+        }
+
+        input {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            margin-top: 1.2rem;
+            align-items: center;
+            padding: .3rem;
+            width: 100%;
+            background-color: #f4f1f1;
+            font-size: 2rem;
+            border: 1px solid #ccc;
+            border-radius: .4rem;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #reset {
+            background-color: #ff0000;
+        }
+
+        #clear {
+            background-color: #0a934c;
+        }
+
+        button {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: .5rem;
+            margin-top: 1.2rem;
+            color: #fff;
+            background-color: #000;
+            border-radius: .5rem;
+        }
+
+        @media screen and (min-width: 767px) {
+            fieldset {
+                margin: 0 50rem 0 50rem;
+            }
+        }
+    </style>
+</head>
+    
+<!--<header id="header">
+    <div class="head-container">
+        <div class="logo">
+            <img src="public/img/apc.jpeg" alt="APC Logo">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Tushe</a></li>
+                <li><a href="#about">Bayanai</a></li>
+                <li><a href="#footer">tuntubemu</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="icons" id="#icon">
+     nav here 
+    <i class="fa fa-bars" id="bar"></i>  
+    </div>
+    
+</header>--> 
+
+<section class="home" id="home">
+
+    <!--<div class="image" id="image">
+        <img class="to" src="public/img/g-1.jpg">
+        <img class="bottom" src="public/img/g-3.jpg">
+    </div>-->
+
+  </section>
+
+  <fieldset>
+
+    <legend>Calculator</legend>
+
+    <div id="answer"></div>
+
+    <form action="" id="cal-form">
+        <input type="text" id="num1" placeholder="number here">
+        <input type="text" id="operator" placeholder="operator here">
+        <input type="text" id="num2" placeholder="another number here">
+
+        <div class="wrapper">
+            <button type="submit" id="submit">Submit</button>
+            <button type="submit" id="clear">Clear</button>
+            <button type="submit" id="reset">Reset</button>
+        </div>
+
+    </form>
+
+  </fieldset>
+
+
+    <script type="text/javascript">
+
+       const calForm = document.querySelector('#cal-form');
+       const num1 = document.querySelector('#num1');
+       const num2 = document.querySelector('#num2');
+       const operator = document.querySelector('#operator');
+       const btn = document.querySelector('#submit');
+       const answer = document.querySelector('#answer');
+
+       
+       calForm.addEventListener('submit', onSubmit);
+       function onSubmit(e) {
+        e.preventDefault();
+        
+        //alert('5n');
+
+        if (num1.value === '' || num2.value === '' || operator.value == '') {
+                answer.innerHTML = 'Please insert a number or operator';
+                answer.style.background = 'red';
+                answer.style.color = '#fff';
+                answer.style.padding = '.4rem';
+                setTimeout(() => answer.remove(), 2000);
+            } 
+
+            else {
+                const num1 = document.getElementById('num1').value;
+                const num2 = document.getElementById('num2').value;
+                const operator = document.getElementById('operator');
+
+                function eval(num1, num2) {
+
+                if (operator === '+') {
+                    return num1 + num2;
+                } 
+                else if(operator.value === '*') {
+                    return num1 * num2;
+                }
+                else if(operator.value === '-') {
+                    return num1 - num2;
+                }
+
+                else if(operator === '/') {
+                   return num1 / num2;
+                }
+
+                else if(operator === '%') {
+                    return num1 % num2;
+                }
+
+                else {
+                    answer.innerHTML = 'This operator not applicable!';
+                    answer.style.background = 'red';
+                    answer.style.color = '#fff';
+                    answer.style.padding = '.8rem';
+                    setTimeout(() => answer.remove(), 2000);
+                    }
+
+                }
+
+                answer.innerHTML = eval();
+                answer.style.background = 'green';
+                answer.style.color = '#fff';
+                answer.style.padding = '1.2rem';
+                setTimeout(() => answer.remove(), 20000);
+            }
+
+       }
+
+       const clearField = document.getElementById('clear');
+       clearField.addEventListener('click', function() {
+            const num1 = document.getElementById('num1').value  = '';
+            const num2 = document.getElementById('num2').value = '';
+            const operator = document.getElementById('operator').value = '';
+            //answer.remove();
+       });
+
+       const reset = document.getElementById('reset');
+       reset.addEventListener('click', function() {
+
+        //alert();
+
+        window.location.reload();
+
+       });
+
+
+        /*function isEven(num) {
+            if(num % 2 === 0) {
+                console.log('The number is even');
+            }
+            else {
+                console.log('This is not an even number');
+            }
+            
+        }*/
+
+        //isEven(11);
+
+
+    </script>
+</body>
+</html>
